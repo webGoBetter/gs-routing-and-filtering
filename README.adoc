@@ -10,76 +10,76 @@ projects: [spring-cloud, spring-cloud-netflix]
 :source-highlighter: prettify
 :project_id: gs-routing-and-filtering
 
-This guide walks you through the process of routing and filtering requests to a microservice application using the Netflix Zuul edge service library.
+本指南会带你了解使用Netflix Zuul边缘服务库，将请求路由和过滤到微服应用的过程。
 
-== What you'll build
+== 你将构建什么
 
-You'll write a simple microservice application and then build a reverse proxy application that uses https://github.com/spring-cloud/spring-cloud-netflix[Netflix Zuul] to forward requests to the service application. You'll also see how to use Zuul to filter requests made through the proxy service.
+你会写的一个简单的微服务应用，然后建立反向代理的应用程序，代理应用使用https://github.com/spring-cloud/spring-cloud-netflix[Netflix Zuul]来转发请求到服务应用。 您还将看到如何使用Zuul过滤通过代理服务的请求。
 
-== What you'll need
+== 你需要什么
 
 :java_version: 1.8
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
 [[reveal-gradle]]
 [.reveal-gradle]
-== Build with Gradle
+== 使用Gradle构建
 
 [[scratch]]
 [.use-gradle]
-== Build with Gradle
+== 使用Gradle构建
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_system_intro.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/build_system_intro.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/create_directory_structure_hello.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_both_builds.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/create_both_builds.adoc[]
 
 `book/build.gradle`
 // AsciiDoc source formatting doesn't support groovy, so using java instead
 [source,java]
 ----
-include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/book/build.gradle[]
+include::https://raw.githubusercontent.com/webGoBetter/{project_id}/master/initial/book/build.gradle[]
 ----
 
 `gateway/build.gradle`
 // AsciiDoc source formatting doesn't support groovy, so using java instead
 [source,java]
 ----
-include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/gateway/build.gradle[]
+include::https://raw.githubusercontent.com/webGoBetter/{project_id}/master/initial/gateway/build.gradle[]
 ----
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-gradle-plugin.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/spring-boot-gradle-plugin.adoc[]
 
 [[reveal-maven]]
 [.reveal-maven]
-== Build with Maven
+== 使用Maven构建
 
 [[use-maven]]
 [.use-maven]
-== Build with Maven
+== 使用Maven构建
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_system_intro_maven.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/build_system_intro_maven.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/create_directory_structure_hello.adoc[]
 
 `book/pom.xml`
 [source,xml]
 ----
-include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/book/pom.xml[]
+include::https://raw.githubusercontent.com/webGoBetter/{project_id}/master/initial/book/pom.xml[]
 ----
 
 `gateway/pom.xml`
 [source,xml]
 ----
-include::https://raw.githubusercontent.com/spring-guides/{project_id}/master/initial/gateway/pom.xml[]
+include::https://raw.githubusercontent.com/webGoBetter/{project_id}/master/initial/gateway/pom.xml[]
 ----
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/spring-boot-maven-plugin.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/spring-boot-maven-plugin.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-sts.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/hide-show-sts.adoc[]
 
 
 [[initial]]
@@ -199,4 +199,4 @@ Visit one of the Book service endpoints, as `localhost:8080/books/available`, an
 
 Congratulations! You've just used Spring to develop an edge service application that can proxy and filter requests for your microservices.
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
+include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/master/footer.adoc[]
