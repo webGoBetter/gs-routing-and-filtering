@@ -14,7 +14,7 @@ projects: [spring-cloud, spring-cloud-netflix]
 
 == 你将构建什么
 
-你会写的一个简单的微服务应用，然后建立反向代理的应用程序，代理应用使用https://github.com/spring-cloud/spring-cloud-netflix[Netflix Zuul]来转发请求到服务应用。 您还将看到如何使用Zuul过滤通过代理服务的请求。
+你会写的一个简单的微服务应用，然后建立反向代理的应用程序，代理应用使用 https://github.com/spring-cloud/spring-cloud-netflix[Netflix Zuul] 来转发请求到服务应用。 您还将看到如何使用Zuul过滤通过代理服务的请求。
 
 == 你需要什么
 
@@ -83,9 +83,9 @@ include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/ma
 
 
 [[initial]]
-== Set up a microservice
+== 建立一个微服务
 
-The Book service will be super-simple. Edit `BookApplication.java` to look like this:
+预定服务将非常简单。编辑 `BookApplication.java` ，让它看起来像这样：
 
 `book/src/main/java/hello/BookApplication.java`
 [source,java]
@@ -93,7 +93,7 @@ The Book service will be super-simple. Edit `BookApplication.java` to look like 
 include::complete/book/src/main/java/hello/BookApplication.java[]
 ----
 
-The `BookApplication` class is now a REST controller. `@RestController` marks the class as a controller class, and also ensures that return values from `@RequestMapping` methods in this class will be automatically converted appropriately and written directly to the HTTP response.
+`BookApplication` 类显示是一个 REST 风格的控制器. `@RestController` marks the class as a controller class, and also ensures that return values from `@RequestMapping` methods in this class will be automatically converted appropriately and written directly to the HTTP response.
 
 Speaking of `@RequestMapping` methods, we've added two: `available()` and `checkedOut()`. They handle requests to the paths `/available` and `/checked-out`, each simply returning the `String` name of a book.
 
@@ -108,7 +108,7 @@ include::complete/book/src/main/resources/application.properties[]
 We're also setting `server.port` here so that it won't conflict with our edge service when we get both services up and running locally.
 
 
-== Create an edge service
+== 创建一个边缘服务
 
 Spring Cloud Netflix includes an embedded Zuul proxy, which we can enable with the `@EnableZuulProxy` annotation. This will turn the Gateway application into a reverse proxy that forwards relevant calls to other services---such as our Book service.
 
@@ -149,7 +149,7 @@ Spring Cloud Zuul will automatically set the path to the application name.  In t
 Notice the second-to-last property in our file: Spring Cloud Netflix Zuul uses Netflix's Ribbon to perform client-side load balancing, and by default, Ribbon would use Netflix Eureka for service discovery. For this simple example, we're skipping service discovery, so we've set `ribbon.eureka.enabled` to `false`. Since Ribbon now can't use Eureka to look up services, we must specify a `url` for the Book service.
 
 
-== Add a filter
+== 添加一个过滤器
 
 Now let's see how we can filter requests through our proxy service. Zuul has four standard filter types:
 
@@ -184,7 +184,7 @@ include::complete/gateway/src/main/java/hello/GatewayApplication.java[]
 ----
 
 
-== Trying it out
+== 试一试
 
 Make sure that both applications are running. In a browser, visit one of the Book application's endpoints via the Gateway application. If you've used the configuration shown in this guide, you can access the Book service directly at `localhost:8090` and via the Gateway service at `localhost:8080/books`.
 
@@ -195,7 +195,7 @@ Visit one of the Book service endpoints, as `localhost:8080/books/available`, an
 2016-01-19 16:51:14.672  INFO 58807 --- [nio-8080-exec-6] o.s.c.n.zuul.filters.ProxyRouteLocator   : Finding route for path: /books/available
 ----
 
-== Summary
+== 恭喜
 
 Congratulations! You've just used Spring to develop an edge service application that can proxy and filter requests for your microservices.
 
