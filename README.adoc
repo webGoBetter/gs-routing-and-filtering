@@ -144,10 +144,9 @@ public class GatewayApplication {
 include::complete/gateway/src/main/resources/application.properties[]
 ----
 
-Spring Cloud Zuul will automatically set the path to the application name.  In this sample because we set `zuul.routes.books.url`, so Zuul will proxy requests to `/books` to this URL.
+Spring Cloud Zuul 将自动设置应用程序名称。在这个样本，因为我们设置 `zuul.routes.books.url` ,因此Zuul将代理 `/books` 请求到这个URL。
 
-Notice the second-to-last property in our file: Spring Cloud Netflix Zuul uses Netflix's Ribbon to perform client-side load balancing, and by default, Ribbon would use Netflix Eureka for service discovery. For this simple example, we're skipping service discovery, so we've set `ribbon.eureka.enabled` to `false`. Since Ribbon now can't use Eureka to look up services, we must specify a `url` for the Book service.
-
+注意到我们文件中第二个到最后一个属性： Spring Cloud Netflix Zuul 使用Netflix的 Ribbon负责客户端负载均衡，默认情况下，Ribbon会用Netflix Eureka作为服务发现。在这个简单的例子中，我们跳过服务发现，因此我们设置 `ribbon.eureka.enabled` 为 `false` ，因为Ribbon现在开始不能使用Eureka发现服务，我们必须为预定服务指定 `url` 。
 
 == 添加一个过滤器
 
