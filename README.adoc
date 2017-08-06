@@ -112,7 +112,7 @@ include::complete/book/src/main/resources/application.properties[]
 
 Spring Cloud Netflix包括嵌入式Zuul的代理，对它我们可以使用 `@EnableZuulProxy` 注释。这将使网关应用程序变成反向代理，将相关调用转发给其他服务，比如我们的预定服务。
 
-Open the Gateway application's `GatewayApplication` class and add the annotation, like so:
+打开网关应用的 `GatewayApplication` 类，然后添加注解，像这样：
 
 `gateway/src/main/java/hello/GatewayApplication.java`
 [source,java]
@@ -134,9 +134,9 @@ public class GatewayApplication {
 }
 ----
 
-To forward requests from the Gateway application, we need to tell Zuul the routes that it should watch and the services to which to forward requests to those routes. We specify routes using properties under `zuul.routes`. Each of our microservices can have an entry under `zuul.routes.NAME`, where `NAME` is the application name (as stored in the `spring.application.name` property).
+为了转发来自网关的请求，我们需要告诉Zuul它需要观察的路由，和那些经过需要这些路由转发的服务。我们用 `zuul.routes` 属性指定路由。我们的每一个微服务都有定义了 `zuul.routes.NAME` 实例，这个 `NAME` 是应用名(存储在 `spring.application.name` 属性中)。
 
-Add the `application.properties` file to a new directory, `src/main/resources`, in the Gateway application. It should look like this:
+ 添加一个 `application.properties` 文件到我们网关应用的新路径中， `src/main/resources` 。他看起来像这样：
 
 `gateway/src/main/resources/application.properties`
 [source,properties]
