@@ -93,11 +93,11 @@ include::https://raw.githubusercontent.com/webGoBetter/getting-started-macros/ma
 include::complete/book/src/main/java/hello/BookApplication.java[]
 ----
 
-`BookApplication` 类显示是一个 REST 风格的控制器. `@RestController` marks the class as a controller class, and also ensures that return values from `@RequestMapping` methods in this class will be automatically converted appropriately and written directly to the HTTP response.
+`BookApplication` 类显示是一个 REST 风格的控制器. `@RestController` 标记的类作为一个控制器类，也确保这个类中的 `@RequestMapping` 方法的返回值会被自动转换成适当的值直接写入HTTP响应。
 
-Speaking of `@RequestMapping` methods, we've added two: `available()` and `checkedOut()`. They handle requests to the paths `/available` and `/checked-out`, each simply returning the `String` name of a book.
+说到 `@RequestMapping` 方法，我们已经增加了两个：`available()` 和 `checkedOut()` 。他们处理请求的路径 `/available` 和 `/checked-out` ，每个只需返回预定名字的 `String` 。
 
-Set the application name (`book`) in `src/main/resources/application.properties`.
+将 `src/main/resources/application.properties` 中的应用名字设置为 (`book`) 。
 
 `book/src/main/resources/application.properties`
 [source,properties]
@@ -105,12 +105,12 @@ Set the application name (`book`) in `src/main/resources/application.properties`
 include::complete/book/src/main/resources/application.properties[]
 ----
 
-We're also setting `server.port` here so that it won't conflict with our edge service when we get both services up and running locally.
+我们也在这里设置 `server.port` ，这样当我们在本地同时启动并运行服务时，它就不会与我们的边缘服务发生冲突。
 
 
 == 创建一个边缘服务
 
-Spring Cloud Netflix includes an embedded Zuul proxy, which we can enable with the `@EnableZuulProxy` annotation. This will turn the Gateway application into a reverse proxy that forwards relevant calls to other services---such as our Book service.
+Spring Cloud Netflix包括嵌入式Zuul的代理，对它我们可以使用 `@EnableZuulProxy` 注释。这将使网关应用程序变成反向代理，将相关调用转发给其他服务，比如我们的预定服务。
 
 Open the Gateway application's `GatewayApplication` class and add the annotation, like so:
 
