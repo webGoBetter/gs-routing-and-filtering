@@ -150,14 +150,14 @@ Spring Cloud Zuul 将自动设置应用程序名称。在这个样本，因为�
 
 == 添加一个过滤器
 
-Now let's see how we can filter requests through our proxy service. Zuul has four standard filter types:
+现在让我们看看如何通过代理服务过滤请求。Zuul有四个标准的过滤器类型：
 
-- **pre** filters are executed before the request is routed,
-- **route** filters can handle the actual routing of the request,
-- **post** filters are executed after the request has been routed, and
-- **error** filters execute if an error occurs in the course of handling the request.
+- **pre** 过滤器会在请求被路由前执行,
+- **route** 过滤器处理实际的请求路由,
+- **post** 过滤器在请求被路由了之后执行，
+- **error** 过滤器会在处理请求时遇到错误时被执行.
 
-We're going to write a _pre_ filter. Spring Cloud Netflix picks up, as a filter, any `@Bean` which extends `com.netflix.zuul.ZuulFilter` and is available in the application context. Create a new directory, `src/main/java/hello/filters/pre`, and within it, create the filter file, `SimpleFilter.java`:
+我们将写一个 _pre_ 过滤器. Spring Cloud Netflix 选择, 作为一个过滤器, 任何一个继承了  `com.netflix.zuul.ZuulFilter` 类并且在应用程序上下文中的 `@Bean` . 创建一个目录, `src/main/java/hello/filters/pre`, 然后在里面创建一个文件, `SimpleFilter.java`:
 
 `gateway/src/main/java/hello/filters/pre/SimpleFilter.java`
 [source,java]
@@ -165,7 +165,7 @@ We're going to write a _pre_ filter. Spring Cloud Netflix picks up, as a filter,
 include::complete/gateway/src/main/java/hello/filters/pre/SimpleFilter.java[]
 ----
 
-Filter classes implement four methods:
+过滤器类实现了四个方法:
 
 - `filterType()` returns a `String` that stands for the type of the filter---in this case, `pre`, or it could be `route` for a routing filter.
 - `filterOrder()` gives the order in which this filter will be executed, relative to other filters.
