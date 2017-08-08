@@ -167,14 +167,14 @@ include::complete/gateway/src/main/java/hello/filters/pre/SimpleFilter.java[]
 
 过滤器类实现了四个方法:
 
-- `filterType()` returns a `String` that stands for the type of the filter---in this case, `pre`, or it could be `route` for a routing filter.
-- `filterOrder()` gives the order in which this filter will be executed, relative to other filters.
-- `shouldFilter()` contains the logic that determines when to execute this filter (this particular filter will _always_ be executed).
-- `run()` contains the functionality of the filter.
+- `filterType()` 返回一个表示过滤器类型的字符串 ---在这个例子中, 叫 `pre`, 也可以过滤路由器叫 `route` .
+- `filterOrder()` 返回过滤器的执行顺序，这是相对于其他过滤器来说的。
+- `shouldFilter()` 包含了决定何时执行这个过滤器的逻辑 (这个特殊的过滤器将 _总是_ 被执行)。
+- `run()` 包含了过滤器的功能.
 
-Zuul filters store request and state information in (and share it by means of) the `RequestContext`. We're using that to get at the `HttpServletRequest`, and then we log the HTTP method and URL of the request before it is sent on its way.
+Zuul 过滤器在 `RequestContext` 中存储请求和保存状态信息（并分享状态信息）。我们在 `HttpServletRequest` 中使用它，然后我们在请求被分发出去前记录HTTP 方法和请求的URL的日志。
 
-The `GatewayApplication` class is annotated with `@SpringBootApplication`, which is equivalent to (among others) the `@Configuration` annotation that tells Spring to look in a given class for `@Bean` definitions. Add one for our `SimpleFilter` here:
+`GatewayApplication` 使用了 `@SpringBootApplication` 注解, `@SpringBootApplication` 相当于（在其它例子中） `@Configuration` 注解，它高数Spring 在给定的类中寻找 `@Bean` 定义。在这里添加一个我们的 `SimpleFilter` :
 
 `gateway/src/main/java/hello/GatewayApplication.java`
 [source,java]
@@ -185,9 +185,9 @@ include::complete/gateway/src/main/java/hello/GatewayApplication.java[]
 
 == 试一试
 
-Make sure that both applications are running. In a browser, visit one of the Book application's endpoints via the Gateway application. If you've used the configuration shown in this guide, you can access the Book service directly at `localhost:8090` and via the Gateway service at `localhost:8080/books`.
+确保两个应用程序都在运行。通过网关应用程序在浏览器中访问预定应用程序的端点之一。如果您使用本指南中所示的配置，你可以直接在 `localhost:8090` 和通过网关服务 `localhost:8080/books` 访问本服务。
 
-Visit one of the Book service endpoints, as `localhost:8080/books/available`, and you should see your request's method logged by the Gateway application before it's handed on to the Book application:
+参观一个预定服务端点，如 `localhost:8080/books/available` ，你应该看到，你的请求方法在被转发到预定应用前，已经被被网关应用记录：
 
 ----
 2016-01-19 16:51:14.672  INFO 58807 --- [nio-8080-exec-6] hello.filters.pre.SimpleFilter           : GET request to http://localhost:8080/books/available
